@@ -292,6 +292,15 @@ docker-compose down
 
 ## 🚨 Troubleshooting
 
+### ⭐ Build & Deployment Errors
+**See:** [DEPLOYMENT_FIXES.md](DEPLOYMENT_FIXES.md)
+- Pillow zlib errors
+- Pandas compatibility errors
+- Package build failures
+- Python version issues
+
+All of these are already solved! Just push your latest code.
+
 ### Issue: "Model not found" error
 
 **Solution:**
