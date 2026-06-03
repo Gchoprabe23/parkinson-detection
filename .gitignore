@@ -49,6 +49,18 @@ venv.bak/
 model/backups/
 model/*.tar.gz
 
+# Temporary test files
+temp*.jpg
+temp*.png
+V07HE01.png
+park_test.png
+plot.png
+ls-files
+
+# OS files
+.DS_Store
+Thumbs.db
+
 # Logs
 *.log
 logs/
