@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./parkinsons.db
+      - SECRET_KEY=your_secret_key_here
+      - ALGORITHM=HS256
+    volumes:
+      - ./parkinsons.db:/app/parkinsons.db
+      - ./model:/app/model
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    image: streamlit/streamlit:latest
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app
+      - ~/.streamlit:/root/.streamlit
+    environment:
+      - BACKEND_URL=http://backend:8000
+    command: streamlit run /app/app.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - backend
