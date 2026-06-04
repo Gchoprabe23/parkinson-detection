@@ -538,10 +538,10 @@ elif not st.session_state.token:
     with tab3:
         st.subheader("Continue as Guest")
         st.info(
-            "🏃 **Guest Mode:**\\n"
-            "✓ No account needed\\n"
-            "✓ Quick predictions\\n"
-            "✓ Instant results\\n\\n"
+            "🏃 **Guest Mode:**\n"
+            "✓ No account needed\n"
+            "✓ Quick predictions\n"
+            "✓ Instant results\n\n"
             "⚠️ Results are not saved - create an account to maintain history."
         )
         
