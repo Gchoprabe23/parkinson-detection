@@ -1,7 +1,4 @@
 # backend/main.py
-import os
-os.environ["TF_USE_LEGACY_KERAS"] = "1"
-
 from fastapi import FastAPI, File, UploadFile, HTTPException, Depends, status, Form, Query
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,7 +9,7 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 import numpy as np
 import cv2
-from tf_keras.models import load_model
+from tensorflow.keras.models import load_model
 from . import models, database
 import tensorflow as tf
 import os
@@ -25,7 +22,7 @@ load_dotenv()
 
 # --- CONFIGURATION ---
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_PATH = os.path.join(BASE_DIR, "model", "parkinsons_detector.keras")
+MODEL_PATH = os.path.join(BASE_DIR, "model", "parkinsons_detector.h5")
 
 CLASSES = ["Healthy", "Parkinson"]
 SECRET_KEY = os.getenv("SECRET_KEY", "my_super_secret_key_for_final_year_project")
@@ -140,7 +137,7 @@ def load_ai_model():
             return
         
         try:
-            model = load_model(MODEL_PATH)
+            model = tf.keras.models.load_model(MODEL_PATH)
             print(f"[INFO] Model loaded successfully from {MODEL_PATH}")
         except Exception as load_error:
             print(f"[ERROR] Could not load model from file: {load_error}")

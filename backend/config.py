@@ -16,7 +16,7 @@ class Config:
     ALGORITHM = os.getenv("ALGORITHM", "HS256")
     ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
     DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./parkinsons.db")
-    MODEL_PATH = os.getenv("MODEL_PATH", "model/parkinsons_detector.keras")
+    MODEL_PATH = os.getenv("MODEL_PATH", "model/parkinsons_detector.h5")
     BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
     
     # CORS settings

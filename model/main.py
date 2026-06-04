@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATASET_PATH = r"C:\Users\chopr\Downloads\Parkinson-Project-main\Parkinson-Project-main\dataset"
 
 INIT_LR = 1e-3  # Increased for better convergence
-EPOCHS = 100  # Full training for reliable model
+EPOCHS = 50  # Reduced to 50 epochs for faster training
 BS = 16  # Increased batch size for more stable gradients
 
 
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 
     # 7. Save Model
     print("[INFO] saving model...")
-    model_path = os.path.join(BASE_DIR, "model", "parkinsons_detector.keras")
+    model_path = os.path.join(BASE_DIR, "model", "parkinsons_detector.h5")
     model.save(model_path)
     print(f"[INFO] Model saved to {model_path}")
 
