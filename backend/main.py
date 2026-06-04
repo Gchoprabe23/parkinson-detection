@@ -148,6 +148,12 @@ def load_ai_model():
         model = None
 
 
+@app.get("/")
+def read_root():
+    """Root endpoint for Render health check"""
+    return {"message": "Welcome to the Parkinson's Detection API", "status": "active"}
+
+
 @app.get("/health")
 def health_check():
     """Health check endpoint"""
